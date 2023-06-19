@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/quiz.dart';
-import 'package:flutter_app_test/reset.dart';
 
 import './result.dart';
+import './reset.dart';
+import './quiz.dart';
 
 void main() => runApp(MyExampleApp());
 
