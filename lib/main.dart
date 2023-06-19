@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_test/quiz.dart';
+import 'package:flutter_app_test/reset.dart';
 
-// import './question.dart';
-// import './answer.dart';
 import './result.dart';
 
 void main() => runApp(MyExampleApp());
@@ -88,6 +87,13 @@ class MyAppState extends State<MyApp> {
     // print(questionIndex);
   }
 
+  void _resetValues() {
+    setState(() {
+      _questionIndex = 0;
+      _totalscore = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,18 +114,7 @@ class MyAppState extends State<MyApp> {
               ],
             )
           : Result(_totalscore),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: (() => setState(() {
-                  _questionIndex = 0;
-                  _totalscore = 0;
-                })),
-            child: Icon(Icons.refresh),
-          )
-        ],
-      ),
+      floatingActionButton: ResetButton(_resetValues),
       backgroundColor: Colors.cyan,
     );
   }
